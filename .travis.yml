@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.8"  # Можно выбрать нужную версию Python
+
+# Установка зависимостей
+install:
+  - pip install --upgrade pip
+  - pip install kivy
+  - pip install buildozer
+  - sudo apt-get update
+  - sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
+  - sudo apt-get install -y android-sdk
+  - sudo apt-get install -y openjdk-8-jdk
+  - sudo apt-get install -y libncurses5 libstdc++6 lib32z1 libbz2-1.0
+  - sudo apt-get install -y lib32ncurses5 lib32stdc++6
+  - sudo apt-get install -y zlib1g:i386
+
+# Сборка APK с помощью Buildozer
+script:
+  - buildozer android debug
